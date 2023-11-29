@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình vuông</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .square {
+            margin: 10px;
+        }
+
+        .small { width: 100px; height: 100px; background-color: yellow; }
+        .medium { width: 200px; height: 200px; background-color: green; }
+        .large { width: 300px; height: 300px; background-color: red; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="square large">
+            <div class="square medium">
+                <div class="square small"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
