@@ -1,0 +1,15 @@
+.box {
+    width: 500px;
+    height: 500px;
+    margin: 50px ;
+    padding: 100px 0 0 0; /* = padding-top: 100px */
+    border: 50px solid black;
+    /* background-color: red; */
+    background-image: url('../images/image-1.png');
+    background-size: contain, cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 40px 0px 40px 0px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
