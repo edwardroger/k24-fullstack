@@ -47,3 +47,32 @@ console.log(sum(5, 10));
 // 1. Khai báo 1 mảng gồm 10 số nguyên. Tính tổng số lớn nhất và số nhỏ nhất. 
 // 2. Khai báo 1 mảng gồm n số nguyên. Tính tổng số lớn nhất và số lớn thứ 2.
 // Yêu cầu: Tối ưu code. Tránh lặp code
+
+const defineArray = (n) => {
+    var array = [];
+    for (let index = 0; index < n; index++) {
+        //push item => array
+    }
+
+    return array;
+}
+
+//bai 8
+const sumMinMax = () => {
+    var array = defineArray(10);
+    var min = array[0];
+    var max = array[1];
+
+    return min + max;
+}
+
+const sumMax = () => {
+    var n = prompt('nhap n');
+    var array = defineArray(n);
+    var max1 = array[0];
+    var max2 = array[1];
+
+    return max1 + max2;
+}
+
+console.log(sumMinMax());
