@@ -12,12 +12,24 @@ const render = (question, answer) => {
         `;
 }
 
+const calScore = (answers) => {
+    var sum = 0;
+    let score = answers.map((value, key) => {
+        if (value === questions[key].correctAnswer) {
+            sum++;
+        }
+        return sum;
+    })
+
+    return score.pop();
+}
+
 const onHandleClick = () => {
     let next = document.getElementById('next');
     next.addEventListener('click', () => {
         let selected = document.querySelector('input[name="answer"]:checked');
         if (!selected) {
-            // console.log('Moi chon dap an');
+            alert('Please select an answer');
         }
         let answer = selected.value;
         let questionNumber = document.getElementById('question_number').value;
@@ -32,10 +44,8 @@ const onHandleClick = () => {
         //Render lại màn hình
         let display = document.getElementById('body');
         if (totalAnswer.length ===  5) {
-            // Tính điểm
-            // ...
-            totalAnswer
-            // let totalCorrect = ...
+            let totalCorrect = calScore(totalAnswer);
+
             display.innerHTML = totalCorrect + '/5';
 
             return;
