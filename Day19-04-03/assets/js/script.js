@@ -27,10 +27,16 @@ const render = () => {
                     </div>
                     <div class="col right">
                         <div class="quantity">
-                            <input type="number"
+                            <input type="text"
                                 class="product-quantity"
-                                id="product_"
+                                id="product_${products[key].id}"
+                                onchange="handleUpdateQuantity(${products[key].id}, ${products[key].price})"
                                 step="1" value="1" />
+                        </div>
+                        <div class="unit-price">
+                            <p id="product_unit_${products[key].id}">
+                                ${ formatCurrency(products[key].price) }
+                            </p>
                         </div>
                         <div class="remove">
                             <span class="close" onclick="handleRemoveItem(${ products[key].id })">
@@ -42,6 +48,7 @@ const render = () => {
                 `;
     }
     productsHtml.innerHTML = html;
+    calculateTotal();
 }
 
 const handleRemoveItem = (id) => {
@@ -61,6 +68,40 @@ const handleRemoveItem = (id) => {
     // products.splice(product, 1)
 
     render();
+}
+
+const handleUpdateQuantity = (id, price) => {
+    let quantity = parseInt(document.getElementById('product_' + id).value);
+    if (quantity > 0) {
+        document.getElementById('product_' + id).value = quantity;
+        let unitPrice = quantity * price;
+        console.log(unitPrice);
+        document.getElementById(`product_unit_${id}`).innerHTML = formatCurrency(unitPrice);
+    } else {
+        alert('Quantity must be greater than 0');
+        document.getElementById('product_' + id).value = 1;
+    }
+}
+
+const calculateTotal = () => {
+    let sum = 0;
+    let sumAfterVAT = 0;
+    for (let key in products) {
+        let quantity = document.getElementById('product_' + products[key].id).value;
+        console.log(quantity);
+        sum += products[key].price * quantity;
+    }
+
+    if (sum > VAT_MAX) {
+        sumAfterVAT = sum + (sum * VAT_VALUE) / 100;
+    } else {
+        sumAfterVAT = sum;
+    }
+
+    document.querySelector('.vat-value').innerHTML = VAT_VALUE + ' %';
+    document.querySelector('.total').innerHTML = formatCurrency(sum);
+    document.querySelector('.cart-total').innerHTML = formatCurrency(sumAfterVAT);
+
 }
 
 const initScreen = () => {
