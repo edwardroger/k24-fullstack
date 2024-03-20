@@ -81,6 +81,7 @@ const handleUpdateQuantity = (id, price) => {
         alert('Quantity must be greater than 0');
         document.getElementById('product_' + id).value = 1;
     }
+    calculateTotal();
 }
 
 const calculateTotal = () => {
