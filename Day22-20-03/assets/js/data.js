@@ -4,7 +4,19 @@ const user = [
         name: "John",
         email: "john@example.com",
         password: "123456",
-    }
+    },
+    {
+        id: 2,
+        name: "John Wick",
+        email: "john2@example.com",
+        password: "123456",
+    },
+    {
+        id: 3,
+        name: "John Cena",
+        email: "john3@example.com",
+        password: "123456",
+    },
 ];
 
 const products = [

@@ -9,3 +9,7 @@
 .input-error:focus {
     outline-color: red;
 }
+
+.d-none {
+    display: none;
+}
